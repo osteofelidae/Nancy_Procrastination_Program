@@ -23,7 +23,7 @@ public class CONSTANTS {
     public static int DETAILS_DESCRIPTION_Y_OFFSET = 160;
     public static int DETAILS_DIFFICULTY_Y_OFFSET = 125;
     public static int DETAILS_TITLE_TEXT_SIZE = 30;
-    public static int DETAILS_CONTENT_TEXT_SIZE = 15;
+    public static int DETAILS_CONTENT_TEXT_SIZE = 10;
     public static int DETAILS_CLOSEBUTTON_WIDTH = 100;
     public static int DETAILS_CLOSEBUTTON_HEIGHT = 25;
     public static int DETAILS_CLOSEBUTTON_X = DETAILS_X_OFFSET;

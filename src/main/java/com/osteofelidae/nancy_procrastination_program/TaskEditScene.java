@@ -92,16 +92,16 @@ public class TaskEditScene extends Scene{
         //title.setPrefWidth(800);
         //title.setPrefHeight(100);
         title.setLayoutX(CONSTANTS.DETAILS_X_OFFSET-19);
-        title.setLayoutY(CONSTANTS.DETAILS_TITLE_Y_OFFSET-40);
+        title.setLayoutY(CONSTANTS.DETAILS_TITLE_Y_OFFSET-43);
         this.pane.getChildren().add(title);
         // TODO text color
 
         // Description
         TextArea description = new TextArea(this.taskDescription);
         description.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.REGULAR, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
-        description.setLayoutX(CONSTANTS.DETAILS_X_OFFSET-10);
-        description.setLayoutY(CONSTANTS.DETAILS_DESCRIPTION_Y_OFFSET-20);
-        description.setPrefWidth(434);
+        description.setLayoutX(CONSTANTS.DETAILS_X_OFFSET-7);
+        description.setLayoutY(CONSTANTS.DETAILS_DESCRIPTION_Y_OFFSET-15);
+        description.setPrefWidth(399);
         description.setPrefHeight(150);
         description.setWrapText(true);
         this.pane.getChildren().add(description);
@@ -125,9 +125,9 @@ public class TaskEditScene extends Scene{
         // Difficulty input
         TextField difficultyInput = new TextField("" + this.taskDifficulty);
         difficultyInput.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
-        difficultyInput.setLayoutX(CONSTANTS.DETAILS_X_OFFSET + 84);
-        difficultyInput.setLayoutY(CONSTANTS.DETAILS_DIFFICULTY_Y_OFFSET - 20);
-        difficultyInput.setPrefWidth(340);
+        difficultyInput.setLayoutX(CONSTANTS.DETAILS_X_OFFSET + 54);
+        difficultyInput.setLayoutY(CONSTANTS.DETAILS_DIFFICULTY_Y_OFFSET - 14);
+        difficultyInput.setPrefWidth(338);
         this.pane.getChildren().add(difficultyInput);
 
         // Close button
