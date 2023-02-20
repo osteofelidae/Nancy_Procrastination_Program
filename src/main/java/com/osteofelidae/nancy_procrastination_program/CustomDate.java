@@ -160,11 +160,30 @@ public class CustomDate {
 
     }
 
+    // Date format method
+    private String format(int number) {
+
+        // Set string out
+        String out = "" + number;
+
+        // If number length is smaller than 2
+        if (out.length() < 2) {
+
+            // Add a digit
+            out = "0" + out;
+
+        }
+
+        // Return result
+        return out;
+
+    }
+
     // To string method
     public String toString() {
 
         // Return text
-        return "" + month + "/" + day + "/" + year;
+        return "" + format(month) + "  /  " + format(day) + "  /  " + year;
 
     }
 

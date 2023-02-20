@@ -6,8 +6,11 @@ import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Dialog;
+import javafx.scene.text.FontPosture;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 // Class for displaying button
 public class Task extends Button{
@@ -157,6 +160,8 @@ public class Task extends Button{
         this.setMinSize(BUTTON_WIDTH, BUTTON_HEIGHT);
         this.setPrefSize(BUTTON_WIDTH, BUTTON_HEIGHT);
         this.setMaxSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+
+        this.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
 
         // Setup button command
         this.setOnAction(new EventHandler<ActionEvent>() {

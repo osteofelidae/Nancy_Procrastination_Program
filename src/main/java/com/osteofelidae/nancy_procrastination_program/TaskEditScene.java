@@ -88,7 +88,7 @@ public class TaskEditScene extends Scene{
 
         // Title
         TextField title = new TextField(this.taskTitle);
-        title.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, CONSTANTS.DETAILS_TITLE_TEXT_SIZE));
+        title.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, FontPosture.REGULAR, CONSTANTS.DETAILS_TITLE_TEXT_SIZE));
         //title.setPrefWidth(800);
         //title.setPrefHeight(100);
         title.setLayoutX(CONSTANTS.DETAILS_X_OFFSET-19);
@@ -98,17 +98,18 @@ public class TaskEditScene extends Scene{
 
         // Description
         TextArea description = new TextArea(this.taskDescription);
-        description.setFont(Font.font("verdana", FontWeight.LIGHT, FontPosture.REGULAR, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
+        description.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.REGULAR, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
         description.setLayoutX(CONSTANTS.DETAILS_X_OFFSET-10);
         description.setLayoutY(CONSTANTS.DETAILS_DESCRIPTION_Y_OFFSET-20);
-        description.setPrefWidth(500);
+        description.setPrefWidth(434);
+        description.setPrefHeight(150);
         description.setWrapText(true);
         this.pane.getChildren().add(description);
 
-        // Date
+        // TODO Date
         Text date = new Text();
         date.setText("Due: " + this.taskDeadline);
-        date.setFont(Font.font("verdana", FontWeight.LIGHT, FontPosture.REGULAR, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
+        date.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.REGULAR, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
         date.setLayoutX(CONSTANTS.DETAILS_X_OFFSET);
         date.setLayoutY(CONSTANTS.DETAILS_DEADLINE_Y_OFFSET);
         this.pane.getChildren().add(date);
@@ -116,14 +117,14 @@ public class TaskEditScene extends Scene{
         // Difficulty text
         Text difficultyText = new Text();
         difficultyText.setText("Difficulty: ");
-        difficultyText.setFont(Font.font("verdana", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
+        difficultyText.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
         difficultyText.setLayoutX(CONSTANTS.DETAILS_X_OFFSET);
         difficultyText.setLayoutY(CONSTANTS.DETAILS_DIFFICULTY_Y_OFFSET);
         this.pane.getChildren().add(difficultyText);
 
         // Difficulty input
         TextField difficultyInput = new TextField("" + this.taskDifficulty);
-        difficultyInput.setFont(Font.font("verdana", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
+        difficultyInput.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
         difficultyInput.setLayoutX(CONSTANTS.DETAILS_X_OFFSET + 84);
         difficultyInput.setLayoutY(CONSTANTS.DETAILS_DIFFICULTY_Y_OFFSET - 20);
         difficultyInput.setPrefWidth(340);
@@ -133,6 +134,7 @@ public class TaskEditScene extends Scene{
         Button closeButton = new Button("Back");
         // Setup button appearance
         closeButton.setStyle("-fx-background-color:" + CONSTANTS.BUTTON_COLOR + ";-fx-border-color:" + CONSTANTS.BUTTON_BORDER_COLOR + ";-fx-text-fill:" + CONSTANTS.BUTTON_TEXT_COLOR + ";-fx-alignment: center-left;");
+        closeButton.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
         // Setup button size
         closeButton.setMinSize(CONSTANTS.DETAILS_CLOSEBUTTON_WIDTH, CONSTANTS.DETAILS_CLOSEBUTTON_HEIGHT);
         closeButton.setPrefSize(CONSTANTS.DETAILS_CLOSEBUTTON_WIDTH, CONSTANTS.DETAILS_CLOSEBUTTON_HEIGHT);
