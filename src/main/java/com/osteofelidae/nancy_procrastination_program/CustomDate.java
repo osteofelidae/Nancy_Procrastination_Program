@@ -5,9 +5,9 @@ package com.osteofelidae.nancy_procrastination_program;
 public class CustomDate {
 
     // Instance variables
-    private int year;
-    private int month;
-    private int day;
+    public int year;
+    public int month;
+    public int day;
 
     // Basic constructor
     public CustomDate() {

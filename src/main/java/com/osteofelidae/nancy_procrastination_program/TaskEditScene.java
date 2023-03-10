@@ -2,7 +2,6 @@
 package com.osteofelidae.nancy_procrastination_program;
 
 // Import required libraries
-import javafx.application.Application;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -67,6 +66,9 @@ public class TaskEditScene extends Scene{
     // Set task
     public void setTask (Task task) {
 
+        // Set environment variable
+        this.task = task;
+
         // Set task
         this.setTask(this.task.taskTitle, this.task.taskDescription, this.task.taskDeadline, this.task.taskDifficulty);
 
@@ -102,17 +104,41 @@ public class TaskEditScene extends Scene{
         description.setLayoutX(CONSTANTS.DETAILS_X_OFFSET-7);
         description.setLayoutY(CONSTANTS.DETAILS_DESCRIPTION_Y_OFFSET-15);
         description.setPrefWidth(399);
-        description.setPrefHeight(150);
+        description.setPrefHeight(140);
         description.setWrapText(true);
         this.pane.getChildren().add(description);
 
-        // TODO Date
+        // Date text
         Text date = new Text();
-        date.setText("Due: " + this.taskDeadline);
+        date.setText("Due: ");
         date.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.REGULAR, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
         date.setLayoutX(CONSTANTS.DETAILS_X_OFFSET);
         date.setLayoutY(CONSTANTS.DETAILS_DEADLINE_Y_OFFSET);
         this.pane.getChildren().add(date);
+
+        // Date month input
+        TextField dateMonth = new TextField("" + this.taskDeadline.month);
+        dateMonth.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
+        dateMonth.setLayoutX(CONSTANTS.DETAILS_X_OFFSET + 26);
+        dateMonth.setLayoutY(CONSTANTS.DETAILS_DEADLINE_Y_OFFSET - 14);
+        dateMonth.setPrefWidth(25);
+        this.pane.getChildren().add(dateMonth);
+
+        // Date day input
+        TextField dateDay = new TextField("" + this.taskDeadline.day);
+        dateDay.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
+        dateDay.setLayoutX(CONSTANTS.DETAILS_X_OFFSET + 56);
+        dateDay.setLayoutY(CONSTANTS.DETAILS_DEADLINE_Y_OFFSET - 14);
+        dateDay.setPrefWidth(25);
+        this.pane.getChildren().add(dateDay);
+
+        // Date year input
+        TextField dateYear = new TextField("" + this.taskDeadline.year);
+        dateYear.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
+        dateYear.setLayoutX(CONSTANTS.DETAILS_X_OFFSET + 86);
+        dateYear.setLayoutY(CONSTANTS.DETAILS_DEADLINE_Y_OFFSET - 14);
+        dateYear.setPrefWidth(50);
+        this.pane.getChildren().add(dateYear);
 
         // Difficulty text
         Text difficultyText = new Text();
@@ -157,6 +183,48 @@ public class TaskEditScene extends Scene{
             }
         });
         this.pane.getChildren().add(closeButton);
+
+        // Save button
+        Button saveButton = new Button("Save");
+        // Setup button appearance
+        saveButton.setStyle("-fx-background-color:" + CONSTANTS.BUTTON_COLOR + ";-fx-border-color:" + CONSTANTS.BUTTON_BORDER_COLOR + ";-fx-text-fill:" + CONSTANTS.BUTTON_TEXT_COLOR + ";-fx-alignment: center-left;");
+        saveButton.setFont(Font.font("Comic Sans MS", FontWeight.LIGHT, FontPosture.ITALIC, CONSTANTS.DETAILS_CONTENT_TEXT_SIZE));
+        // Setup button size
+        saveButton.setMinSize(CONSTANTS.DETAILS_CLOSEBUTTON_WIDTH, CONSTANTS.DETAILS_CLOSEBUTTON_HEIGHT);
+        saveButton.setPrefSize(CONSTANTS.DETAILS_CLOSEBUTTON_WIDTH, CONSTANTS.DETAILS_CLOSEBUTTON_HEIGHT);
+        saveButton.setMaxSize(CONSTANTS.DETAILS_CLOSEBUTTON_WIDTH, CONSTANTS.DETAILS_CLOSEBUTTON_HEIGHT);
+        // Setup button location
+        saveButton.setLayoutX(CONSTANTS.DETAILS_EDITBUTTON_X);
+        saveButton.setLayoutY(CONSTANTS.DETAILS_CLOSEBUTTON_Y);
+        // Setup button command
+        saveButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            // Override
+            @Override
+
+            // Handle function
+            public void handle(ActionEvent actionEvent) {
+
+                // TODO submit button error boxes
+
+                // Write variables to this pane's current attributed task
+                task.setTaskTitle(title.getText());
+                task.setTaskDescription(description.getText());
+                task.setTaskDeadline(Integer.parseInt(dateYear.getText()), Integer.parseInt(dateMonth.getText()), Integer.parseInt(dateDay.getText()));
+                task.setTaskDifficulty(Integer.parseInt(difficultyInput.getText()));
+
+                // Update task button
+                task.updateButtonText();
+
+                // Update task of details scene
+                ((TaskDetailsScene)scenes[2]).setTask(task);
+
+                // Set scene to input scenes[2] which is task details scene
+                ((Stage)scenes[0]).setScene((Scene)scenes[2]);
+
+            }
+        });
+        this.pane.getChildren().add(saveButton);
 
     }
 

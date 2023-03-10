@@ -65,6 +65,9 @@ public class TaskDetailsScene extends Scene {
     // Set task
     public void setTask (Task task) {
 
+        // Set instance variable
+        this.task = task;
+
         // Set task
         this.setTask(this.task.taskTitle, this.task.taskDescription, this.task.taskDeadline, this.task.taskDifficulty);
 

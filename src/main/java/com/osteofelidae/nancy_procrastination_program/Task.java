@@ -143,7 +143,7 @@ public class Task extends Button{
     }
 
     // Set button text
-    private void updateButtonText() {
+    public void updateButtonText() {
 
         // Set button text
         this.setText(taskTitle + "\n" + taskDeadline);
@@ -176,12 +176,16 @@ public class Task extends Button{
                 ((TaskDetailsScene)scenes[2]).setTask(taskTitle, taskDescription, taskDeadline, taskDifficulty);
 
                 // Set input scenes[3] (task edit scene)'s task to self
-                ((TaskEditScene)scenes[3]).setTask(taskTitle, taskDescription, taskDeadline, taskDifficulty);
+                // ((TaskEditScene)scenes[3]).setTask(taskTitle, taskDescription, taskDeadline, taskDifficulty);
+
+                // Set input scenes[3] task to task
+                ((TaskEditScene)scenes[3]).setTask(Task.this);
 
                 // Set scene to input scenes[2] which is task details scene
                 ((Stage)scenes[0]).setScene((Scene)scenes[2]);
 
             }
+
         });
 
     }
